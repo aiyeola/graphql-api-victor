@@ -8,7 +8,8 @@
     "watch": "tsc -w",
     "tsc": "tsc",
     "dev": "nodemon --exec ts-node src/index.ts",
-    "start": "yarn build && cross-env NODE_ENV=production node build/src/index.js",
+    "start": "cross-env NODE_ENV=production node build/src/index.js",
+    "postinstall": "npm run tsc",
     "build": "rimraf ./build && yarn run tsc"
   },
   "dependencies": {
