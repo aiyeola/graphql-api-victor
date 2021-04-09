@@ -38,9 +38,9 @@ const main = async (): Promise<void> => {
       }))
     );
 
-    const PORT = 4000;
-
-    app.listen(PORT, () => console.log(`server started on port ${PORT}`));
+    app.listen(process.env.PORT, () =>
+      console.log(`server started on PORT ${process.env.PORT}`)
+    );
   } catch (error) {
     console.error('📌 Could not start server', error);
   }
