@@ -6,9 +6,10 @@
   "license": "MIT",
   "scripts": {
     "watch": "tsc -w",
+    "tsc": "tsc",
     "dev": "nodemon --exec ts-node src/index.ts",
     "start": "yarn build && cross-env NODE_ENV=production node build/src/index.js",
-    "build": "rimraf ./build && tsc"
+    "build": "rimraf ./build && yarn run tsc"
   },
   "dependencies": {
     "@types/express": "^4.17.11",
