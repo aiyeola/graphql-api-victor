@@ -6,10 +6,11 @@
   "scripts": {
     "watch": "tsc -w",
     "dev": "nodemon --exec ts-node src/index.ts",
-    "start": "yarn build && cross-env NODE_ENV=production node build/index.js",
+    "start": "yarn build && cross-env NODE_ENV=production node build/src/index.js",
     "build": "rimraf ./build && tsc"
   },
   "dependencies": {
+    "cross-env": "^7.0.3",
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
     "express-graphql": "^0.12.0",
