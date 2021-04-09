@@ -14,7 +14,7 @@ export class MainResolver {
   ): Promise<String> {
     const baseUrl = req.get('host') as string;
 
-    if (!validUrl.isUri(baseUrl)) {
+    if (!validUrl.isWebUri(baseUrl)) {
       return 'Invalid base url';
     }
 
