@@ -8,15 +8,11 @@ import { MyContext } from '../utils/interfaces/context.interface';
 @Resolver()
 export class MainResolver {
   @Query(() => String)
-  async shortenUrl(
+  async shortenURL(
     @Arg('url') url: string,
     @Ctx() { req }: MyContext
   ): Promise<String> {
     const baseUrl = req.get('host') as string;
-
-    // if (!validUrl.isUri(baseUrl)) {
-    //   return 'Invalid base url';
-    // }
 
     const uid = new ShortUniqueId({
       length: 6,
