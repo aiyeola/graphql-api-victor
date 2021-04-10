@@ -19,7 +19,7 @@ const main = async (): Promise<void> => {
       entities: [Url],
     });
 
-    await db.runMigrations();
+    // await db.runMigrations();
 
     const schema: GraphQLSchema = await buildSchema({
       resolvers: [MainResolver],
