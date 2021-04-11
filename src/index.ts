@@ -5,10 +5,11 @@ import { GraphQLSchema } from 'graphql';
 import { buildSchema } from 'type-graphql';
 import { createConnection } from 'typeorm';
 
-import { MainResolver } from './resolvers';
 import { Url } from './entity/Url';
 import ormConfig from '../orm.config';
+import { MainResolver } from './resolvers';
 import { MyContext } from './utils/interfaces/context.interface';
+import Controller from './controller';
 
 const main = async (): Promise<void> => {
   const app: express.Application = express();
@@ -31,12 +32,12 @@ const main = async (): Promise<void> => {
       graphqlHTTP((req, res) => ({
         schema,
         context: { req, res } as MyContext,
-        customFormatErrorFn: (error) => {
-          throw error;
-        },
+        // should be disabled in production by default but for the use case as a challenge it is enabled in dev and prod environment
         graphiql: true,
       }))
     );
+
+    app.use('/:shortUrl', Controller.handleShortUrl);
 
     app.listen(process.env.PORT, () =>
       console.log(`server started on PORT ${process.env.PORT}`)

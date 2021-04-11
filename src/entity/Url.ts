@@ -23,8 +23,8 @@ export class Url extends BaseEntity {
   @Column()
   longUrl!: string;
 
-  @Column()
   @Field()
+  @Column()
   shortUrl!: string;
 
   @Field(() => String)

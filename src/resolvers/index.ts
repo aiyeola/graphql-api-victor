@@ -9,7 +9,7 @@ import { MyContext } from '../utils/interfaces/context.interface';
 export class MainResolver {
   @Query(() => String)
   async shortenURL(
-    @Arg('url') url: string,
+    @Arg('url', () => String) url: string,
     @Ctx() { req }: MyContext
   ): Promise<String> {
     const baseUrl = req.get('host') as string;
