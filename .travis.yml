@@ -6,6 +6,4 @@ notifications:
   email: false
 install:
   - yarn install
-script:
-  - yarn test
 after_success: yarn run coverage
