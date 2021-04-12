@@ -12,7 +12,7 @@
     "dev": "nodemon --exec ts-node src/index.ts",
     "start": "cross-env NODE_ENV=production node build/src/index.js",
     "postinstall": "yarn run tsc",
-    "test": "nyc --reporter=html --reporter=text cross-env NODE_DEV=true NODE_ENV=test ts-mocha src/tests/**/*.test.ts --package package.json",
+    "test": "nyc --reporter=html --reporter=text cross-env NODE_ENV=test ts-mocha src/tests/**/*.test.ts --package package.json",
     "coverage": "nyc report --reporter=text-lcov | coveralls"
   },
   "dependencies": {
