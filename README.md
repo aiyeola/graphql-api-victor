@@ -1,3 +1,4 @@
+[![Build Status](https://travis-ci.com/aiyeola/graphql-api-victor.svg?branch=main)](https://travis-ci.com/aiyeola/graphql-api-victor)
 [![Coverage Status](https://coveralls.io/repos/github/aiyeola/graphql-api-victor/badge.svg?branch=main)](https://coveralls.io/github/aiyeola/graphql-api-victor?branch=main)
 
 ## How to Install and run the application
