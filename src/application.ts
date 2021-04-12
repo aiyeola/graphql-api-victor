@@ -14,12 +14,11 @@ export default class Application {
   public app!: express.Application;
 
   public connectDB = async (): Promise<void> => {
-    const db = await createConnection({
+    await createConnection({
       ...ormConfig,
       entities: [Url],
     });
 
-    // await db.runMigrations();
   };
 
   public init = async (): Promise<void> => {
@@ -34,7 +33,6 @@ export default class Application {
         graphqlHTTP(async (req, res) => ({
           schema,
           context: { req, res } as MyContext,
-          // should be disabled in production by default but for the use case as a challenge it is enabled in dev and prod environment
           graphiql: true,
         }))
       );

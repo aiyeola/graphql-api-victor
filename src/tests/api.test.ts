@@ -8,35 +8,31 @@ chai.use(chaiHttp);
 let application: Application;
 let server: express.Application;
 
-it('should get authors', async () => {
-  expect(2 + 3).to.equals(5);
+before(async () => {
+  application = new Application();
+  await application.connectDB();
+  await application.init();
+
+  server = application.app;
 });
 
-// describe('API Tests', () => {
-//   before(async () => {
-//     application = new Application();
-//     await application.connectDB();
-//     await application.init();
+describe('API Tests', async () => {
+  it('should create shortURL successfully', async () => {
+    const res = await chai.request(server).get('/graphiql').send({
+      query: `query {
+				shortenURL(url: "http://google.com")
+				}`,
+    });
 
-//     server = application.app;
-//   });
+    expect(res.status).to.eq(200);
+  });
+  it('should not accept invalid url', async () => {
+    const res = await chai.request(server).get('/graphiql').send({
+      query: `query {
+				shortenURL(url: "google.com")
+				}`,
+    });
 
-//   it('should create shortURL successfully', async () => {
-//     const res = await chai.request(server).get('/graphiql').send({
-//       query: `query {
-// 				shortenURL(url: "http://google.com")
-// 				}`,
-//     });
-
-//     expect(res.status).to.eq(200);
-//   });
-//   it('should not accept invalid url', async () => {
-//     const res = await chai.request(server).get('/graphiql').send({
-//       query: `query {
-// 				shortenURL(url: "google.com")
-// 				}`,
-//     });
-
-//     expect(res.body.data.shortenURL).to.eq('Invalid url');
-//   });
-// });
+    expect(res.body.data.shortenURL).to.eq('Invalid url');
+  });
+});
