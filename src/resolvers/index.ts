@@ -1,8 +1,8 @@
 import ShortUniqueId from 'short-unique-id';
 import { Arg, Ctx, Query, Resolver } from 'type-graphql';
 import validUrl from 'valid-url';
-import { Url } from '../entity/Url';
 
+import { Url } from '../entity/Url';
 import { MyContext } from '../utils/interfaces/context.interface';
 
 @Resolver()
