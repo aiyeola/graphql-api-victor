@@ -41,8 +41,10 @@ export default class Application {
 
       this.app.use('/:shortUrl', Controller.handleShortUrl);
 
-      this.app.listen(process.env.PORT, () =>
-        console.log(`server started on PORT ${process.env.PORT}`)
+      const PORT = process.env.PORT || 4000;
+
+      this.app.listen(PORT, () =>
+        console.log(`server started on PORT ${PORT}`)
       );
     } catch (error) {
       console.error('📌 Could not start server', error);
