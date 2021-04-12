@@ -24,7 +24,7 @@ it('should get authors', async () => {
 //   it('should create shortURL successfully', async () => {
 //     const res = await chai.request(server).get('/graphiql').send({
 //       query: `query {
-// 				shortenURL(url: "http://google.com")	
+// 				shortenURL(url: "http://google.com")
 // 				}`,
 //     });
 
@@ -33,7 +33,7 @@ it('should get authors', async () => {
 //   it('should not accept invalid url', async () => {
 //     const res = await chai.request(server).get('/graphiql').send({
 //       query: `query {
-// 				shortenURL(url: "google.com")	
+// 				shortenURL(url: "google.com")
 // 				}`,
 //     });
 
