@@ -2,7 +2,7 @@ import { Request, Response } from 'express';
 import { Url } from '../entity/Url';
 
 export default class Controller {
-  static async handleShortUrl(req: Request, res: Response) {
+  static async handleShortUrl(req: Request, res: Response): Promise<void> {
     const shortUrl = req.params.shortUrl;
 
     if (shortUrl.length !== 6) {
